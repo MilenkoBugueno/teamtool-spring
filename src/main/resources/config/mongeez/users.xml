@@ -1,0 +1,14 @@
+<mongoChangeLog>
+    <changeSet>
+        <script>
+            db.User.ensureIndex({"username" : 1});
+            db.User.insert(
+            {
+                "_id" : 234235,
+                "username" : "ozgur",
+                "password" : "password",
+                "authorities": ["ROLE_ADMIN", "ROLE_USER"]
+            });
+        </script>
+    </changeSet>
+</mongoChangeLog>
