@@ -7,3 +7,7 @@ spring:
             host: localhost
             port: 27017
             database: teamtool
+            
+logging:
+  level:
+    org.springframework.security: DEBUG

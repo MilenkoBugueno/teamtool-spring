@@ -1,6 +1,7 @@
 package demo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
@@ -13,7 +14,6 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -40,10 +40,10 @@ public class ApplicationTests {
 	@Test
 	public void testUserRepo() {
 		assertEquals(1, userRepo.count());
-		User userOzgur = userRepo.findOneByUsername("ozgur");
-		assertEquals("password", userOzgur.getPassword());
+		User user = userRepo.findOneByUsername("user");
+		assertEquals("password", user.getPassword());
 		
-		Collection<SimpleGrantedAuthority> authorities = userOzgur.getAuthorities();
+		Collection<SimpleGrantedAuthority> authorities = user.getAuthorities();
 		assertTrue(authorities.contains(new SimpleGrantedAuthority("ROLE_ADMIN")));
 		assertTrue(authorities.contains(new SimpleGrantedAuthority("ROLE_USER")));
 		assertEquals(2, authorities.size());
@@ -72,7 +72,7 @@ public class ApplicationTests {
 
 	@Test
 	public void loginSucceeds() {
-		RestTemplate template = new TestRestTemplate("user", "111");
+		RestTemplate template = new TestRestTemplate("user", "password");
 		ResponseEntity<String> response = template.getForEntity("http://localhost:" + port
 				+ "/user", String.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());

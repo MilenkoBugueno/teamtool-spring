@@ -1,5 +1,7 @@
 package eu.teamtool.config;
 
+import javax.annotation.PreDestroy;
+
 import org.mongeez.Mongeez;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.mongo.MongoProperties;
@@ -26,5 +28,10 @@ public class DatabaseConfiguration {
         mongeez.setDbName(mongoProperties.getDatabase());
         mongeez.process();
         return mongeez;
+    }
+    
+    @PreDestroy
+    public void dropDatabase() {
+        mongo.dropDatabase(mongoProperties.getDatabase());
     }
 }

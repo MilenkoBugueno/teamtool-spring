@@ -5,7 +5,7 @@
             db.User.insert(
             {
                 "_id" : 234235,
-                "username" : "ozgur",
+                "username" : "user",
                 "password" : "password",
                 "authorities": ["ROLE_ADMIN", "ROLE_USER"]
             });
