@@ -1,4 +1,4 @@
-Teamtool
+Teamtool (Spring MVC)
 ================
 
 The "Teamtool" is an emerging open source and web-based tool. On the one hand it helps teams adopting new agile processes and on the other hand it helps to recruit and train team members by means of on-the-job training units, the so-called "Agile Moves".
