@@ -6,7 +6,7 @@
 	<groupId>eu.teamtool</groupId>
 	<artifactId>teamtool</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>basic</name>
 	<description>Teamtool Project for Agile Moves</description>
